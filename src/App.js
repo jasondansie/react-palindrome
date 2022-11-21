@@ -5,9 +5,8 @@ import palindrome from './palindrome';
 class App extends Component {
 
   state = {
-    message: "no string added.",
+    message: "",
     search: "",
-    answer: ""
   };
   
   searchHandler = (event) => {
@@ -20,10 +19,10 @@ class App extends Component {
     
     let results = "";
     if (palindrome(this.state.search)) {
-      results = `Yay this is a palindrome `;
+      results = `Yay ${this.state.search} is a palindrome!!! `;
     }
     else{
-      results = `Sorry no palindrome here`;
+      results = `Sorry no palindrome here.`;
     }
     
     
@@ -36,7 +35,6 @@ class App extends Component {
   }
   
   render(){
-    console.log(`message: ${this.state.message}`);
     return (
       <div>
           <h1>Is it a palindrome</h1>
@@ -45,7 +43,7 @@ class App extends Component {
             <input type="text" name="search" onChange={this.searchHandler}></input>
             <button onClick={this.clickHandler}>Check for palindrome</button>
           </div>        
-          <h2>Message: {this.state.message}</h2>       
+          <h2>Resutls: {this.state.message}</h2>       
         </div >
     );
   }   
